@@ -15,6 +15,7 @@ os.makedirs(report_dir, exist_ok=True)
 html_report_path = os.path.join(report_dir, "report.html")
 html_final_report_path = os.path.join(report_dir, "final_report.html")
 
+
 class HTMLHandler(logging.Handler):
     def __init__(self, filename):
         super().__init__()
@@ -28,28 +29,32 @@ class HTMLHandler(logging.Handler):
         except Exception:
             self.handleError(record)
 
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
         logging.FileHandler(log_file_path, encoding="utf-8"),
-        logging.StreamHandler()
-    ]
+        logging.StreamHandler(),
+    ],
 )
 
 html_handler = HTMLHandler(html_report_path)
 html_handler.setLevel(logging.INFO)
-html_handler.setFormatter(logging.Formatter('<b>%(asctime)s</b> [%(levelname)s] <i>%(name)s</i>: %(message)s'))
+html_handler.setFormatter(
+    logging.Formatter("<b>%(asctime)s</b> [%(levelname)s] <i>%(name)s</i>: %(message)s")
+)
 logging.getLogger().addHandler(html_handler)
 
 logger = logging.getLogger(__name__)
+
 
 def generate_html_report():
     if not os.path.exists(log_file_path):
         logger.warning("Лог файл не найден для отчета.")
         return
 
-    with open(log_file_path, 'r', encoding='utf-8') as log_file:
+    with open(log_file_path, "r", encoding="utf-8") as log_file:
         lines = log_file.readlines()
 
     html_content = """
@@ -78,8 +83,8 @@ def generate_html_report():
 
     for line in lines:
         try:
-            parts = line.strip().split(' ', 2)
-            time, level, message = parts[0], parts[1].strip('[]'), parts[2]
+            parts = line.strip().split(" ", 2)
+            time, level, message = parts[0], parts[1].strip("[]"), parts[2]
             html_content += f"<tr><td>{time}</td><td class='{level}'>{level}</td><td>{message}</td></tr>"
         except Exception:
             continue
@@ -90,10 +95,11 @@ def generate_html_report():
     </html>
     """
 
-    with open(html_final_report_path, 'w', encoding='utf-8') as f:
+    with open(html_final_report_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
     logger.info(f"Финальный HTML-отчёт создан: {html_final_report_path}")
+
 
 async def main():
     logger.info("Запуск бота...")
@@ -109,7 +115,8 @@ async def main():
         logger.exception("Ошибка во время polling:")
     finally:
         logger.info("Polling завершён.")
-        generate_html_report()  
+        generate_html_report()
+
 
 if __name__ == "__main__":
     asyncio.run(main())
