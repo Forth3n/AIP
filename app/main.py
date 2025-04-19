@@ -1,8 +1,10 @@
 import asyncio
 import logging
 import os
+import sys
 from aiogram import Bot, Dispatcher
 from app.handlers import router
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 log_dir = "logs"
 os.makedirs(log_dir, exist_ok=True)

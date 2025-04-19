@@ -256,6 +256,12 @@ def main(directory):
 
 # Обработка аргументов командной строки
 if __name__ == "__main__":
+    # Сгенерируем несколько тестовых файлов в папке `archive`, чтобы продемонстрировать работу архивации
+    for i in range(1, 6):
+        with open(os.path.join(archive_dir, f"old_file_{i}.txt"), "w", encoding="utf-8") as f:
+            f.write(f"Тестовый файл номер {i}, который будет архивирован.\n")
+    
+    # После создания файлов, запускаем анализ
     parser = argparse.ArgumentParser(description="Анализ файловой системы.")
     parser.add_argument("directory", nargs="?", default=os.getcwd(), help="Путь к директории для анализа.")
     args = parser.parse_args()

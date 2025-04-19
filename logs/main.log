@@ -47,3 +47,146 @@
 2025-04-18 17:36:15,618 [INFO] __main__: Polling завершён.
 2025-04-18 17:36:15,645 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
 2025-04-18 17:36:15,645 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:00:08,711 [INFO] __main__: Запуск бота...
+2025-04-19 19:00:08,753 [INFO] __main__: Роутеры подключены. Бот начинает polling.
+2025-04-19 19:00:08,757 [INFO] aiogram.dispatcher: Start polling
+2025-04-19 19:00:09,211 [INFO] aiogram.dispatcher: Run polling for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:03:08,460 [INFO] aiogram.dispatcher: Polling stopped
+2025-04-19 19:03:08,719 [INFO] __main__: Polling завершён.
+2025-04-19 19:03:08,736 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
+2025-04-19 19:03:08,737 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:03:16,751 [INFO] __main__: Запуск бота...
+2025-04-19 19:03:16,770 [INFO] __main__: Роутеры подключены. Бот начинает polling.
+2025-04-19 19:03:16,771 [INFO] aiogram.dispatcher: Start polling
+2025-04-19 19:03:17,095 [INFO] aiogram.dispatcher: Run polling for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:03:41,153 [INFO] app.handlers: Запрос на праздник на сегодня от 7552809712 — 2025-04-19
+2025-04-19 19:03:41,704 [INFO] aiogram.event: Update id=302016862 is not handled. Duration 561 ms by bot id=7245211358
+2025-04-19 19:03:41,705 [ERROR] aiogram.event: Cause exception while process update id=302016862 by bot id=7245211358
+AttributeError: module 'app.keyboards' has no attribute 'choose_date'
+Traceback (most recent call last):
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\app\handlers.py", line 257, in cmd_today
+    await message.answer(text, reply_markup=kb.choose_date)
+                                            ^^^^^^^^^^^^^^
+AttributeError: module 'app.keyboards' has no attribute 'choose_date'
+2025-04-19 19:08:18,425 [INFO] app.handlers: Запрос на праздник на сегодня от 7552809712 — 2025-04-19
+2025-04-19 19:08:18,703 [INFO] aiogram.event: Update id=302016863 is not handled. Duration 280 ms by bot id=7245211358
+2025-04-19 19:08:18,704 [ERROR] aiogram.event: Cause exception while process update id=302016863 by bot id=7245211358
+AttributeError: module 'app.keyboards' has no attribute 'choose_date'
+Traceback (most recent call last):
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 309, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 158, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 25, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\fsm\middleware.py", line 41, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 276, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 156, in _propagate_event
+    response = await router.propagate_event(update_type=update_type, event=event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 128, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 123, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\router.py", line 148, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 121, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\.venv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 43, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\admin\bot_akemi\app\handlers.py", line 257, in cmd_today
+AttributeError: module 'app.keyboards' has no attribute 'choose_date'
+2025-04-19 19:08:44,786 [INFO] aiogram.dispatcher: Polling stopped
+2025-04-19 19:08:45,050 [INFO] __main__: Polling завершён.
+2025-04-19 19:08:45,065 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
+2025-04-19 19:08:45,066 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:08:51,897 [INFO] __main__: Запуск бота...
+2025-04-19 19:08:51,914 [INFO] __main__: Роутеры подключены. Бот начинает polling.
+2025-04-19 19:08:51,915 [INFO] aiogram.dispatcher: Start polling
+2025-04-19 19:08:52,325 [INFO] aiogram.dispatcher: Run polling for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-19 19:08:57,891 [INFO] app.handlers: Запрос на праздник на сегодня от 7552809712 — 2025-04-19
+2025-04-19 19:09:04,407 [INFO] aiogram.event: Update id=302016864 is handled. Duration 6514 ms by bot id=7245211358
+2025-04-19 19:11:14,706 [INFO] app.handlers: Пользователь 7552809712 выбрал ввод другой даты
+2025-04-19 19:11:15,309 [INFO] aiogram.event: Update id=302016865 is handled. Duration 610 ms by bot id=7245211358
+2025-04-19 19:11:24,614 [INFO] app.handlers: Пользователь 7552809712 ввёл дату: 2002-12-12
+2025-04-19 19:11:26,225 [ERROR] app.handlers: Ошибка получения праздников: 500 Server Error: Internal Server Error for url: https://calendarific.com/api/v2/holidays?api_key=ijx15Q1EWw2iAn8lBuH6S2wdZRH5yLXE&country=KZ&year=2002&month=12&day=12
+2025-04-19 19:11:26,359 [INFO] aiogram.event: Update id=302016866 is handled. Duration 1750 ms by bot id=7245211358
+2025-04-19 19:11:34,997 [INFO] aiogram.dispatcher: Polling stopped
+2025-04-19 19:11:35,264 [INFO] __main__: Polling завершён.
+2025-04-19 19:11:35,282 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
+2025-04-19 19:11:35,284 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
