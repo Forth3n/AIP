@@ -4,12 +4,7 @@ import io
 import datetime
 import requests
 from aiogram import F, Router
-from aiogram.types import (
-    Message,
-    CallbackQuery,
-    InlineKeyboardMarkup,
-    InlineKeyboardButton,
-)
+from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.filters import CommandStart
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.context import FSMContext
@@ -17,7 +12,11 @@ from deep_translator import GoogleTranslator
 import app.database as db
 import app.keyboards as kb
 import app.requests as rq
+import zipfile
+import time
+import json
 
+# Настройка логирования
 log_dir = "logs"
 report_dir = "reports"
 os.makedirs(log_dir, exist_ok=True)
@@ -26,7 +25,7 @@ os.makedirs(report_dir, exist_ok=True)
 log_file_path = os.path.join(log_dir, "handlers.log")
 html_report_path = os.path.join(report_dir, "report.html")
 final_html_report_path = os.path.join(report_dir, "final_report.html")
-
+cache_file_path = "cache.json"
 
 class HTMLHandler(logging.Handler):
     def __init__(self, filename):
@@ -50,12 +49,62 @@ log_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(messag
 logger.addHandler(log_handler)
 
 html_handler = HTMLHandler(html_report_path)
-html_handler.setFormatter(
-    logging.Formatter("<b>%(asctime)s</b> [%(levelname)s] %(message)s")
-)
+html_handler.setFormatter(logging.Formatter("<b>%(asctime)s</b> [%(levelname)s] %(message)s"))
 logger.addHandler(html_handler)
 
+# Функция для анализа файлов и нахождения устаревших файлов
+def analyze_directory(directory):
+    current_time = time.time()
+    outdated_files = []
+    file_sizes = {}
+    duplicates = []
 
+    # Пройдем по всем файлам в директории
+    for root, dirs, files in os.walk(directory):
+        for file in files:
+            file_path = os.path.join(root, file)
+            file_stat = os.stat(file_path)
+            file_age = current_time - file_stat.st_mtime
+
+            # Находим устаревшие файлы
+            if file_age > 30 * 24 * 60 * 60:  # более 30 дней
+                outdated_files.append(file_path)
+                logger.info(f"Устаревший файл: {file_path} (возраст: {file_age / (24 * 60 * 60):.2f} дней)")
+
+            # Находим дубликаты
+            file_size = file_stat.st_size
+            if file_size in file_sizes:
+                file_sizes[file_size].append(file_path)
+                if len(file_sizes[file_size]) == 2:
+                    duplicates.append(file_sizes[file_size])
+                    logger.info(f"Найден дубликат: {file_sizes[file_size][0]} и {file_sizes[file_size][1]}")
+            else:
+                file_sizes[file_size] = [file_path]
+
+    return outdated_files, duplicates
+
+# Функция для архивации устаревших файлов в ZIP
+def archive_outdated_files(outdated_files):
+    archive_name = f"outdated_files_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}.zip"
+    with zipfile.ZipFile(archive_name, "w") as archive:
+        for file in outdated_files:
+            archive.write(file, os.path.basename(file))
+            logger.info(f"Добавлен в архив: {file}")
+    logger.info(f"Архив устаревших файлов создан: {archive_name}")
+
+# Функция для создания кэша с результатами анализа
+def create_cache(directory, outdated_files, duplicates):
+    cache_data = {
+        "directory": directory,
+        "outdated_files": outdated_files,
+        "duplicates": duplicates,
+        "timestamp": datetime.datetime.now().isoformat()
+    }
+    with open(cache_file_path, "w", encoding="utf-8") as cache_file:
+        json.dump(cache_data, cache_file, indent=4)
+    logger.info(f"Кэш создан и сохранён в {cache_file_path}")
+
+# Генерация HTML-отчёта
 def generate_html_report():
     try:
         with io.open(html_report_path, "r", encoding="utf-8") as log_file:
@@ -102,7 +151,20 @@ def generate_html_report():
     except Exception as e:
         logger.error(f"Ошибка при создании итогового HTML-отчёта: {e}")
 
+# Основная функция
+def main(directory):
+    logger.info(f"Запуск анализа директории: {directory}")
+    outdated_files, duplicates = analyze_directory(directory)
+    create_cache(directory, outdated_files, duplicates)
 
+    if outdated_files:
+        logger.info("Архивация устаревших файлов...")
+        archive_outdated_files(outdated_files)
+    else:
+        logger.info("Устаревшие файлы не найдены.")
+
+# Вызов основной функции с текущей директорией
+main(os.getcwd())
 router = Router()
 API = "ijx15Q1EWw2iAn8lBuH6S2wdZRH5yLXE"
 
@@ -191,7 +253,7 @@ async def cmd_today(message: Message):
         for h in holidays:
             text += f"🎉 {translate_to_russian(h['name'])}\n"
     else:
-        text = f"Сегодня ({today.strftime('%d.%m.%Y')}) нет официальных праздников."
+        text = f"Сегодня ({today.strftime('%d.%m.%Y')}) нет официальных праздников"
     await message.answer(text, reply_markup=kb.choose_date)
 
 
