@@ -1,4 +1,5 @@
-aiogram==3.20.0.post0
-requests==2.32.3
+aiogram==3.4.1
+aiohttp
+requests
 deep-translator==1.11.4
 black==25.1.0
