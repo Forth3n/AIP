@@ -1,0 +1,6 @@
+aiogram==3.4.1
+aiohttp
+sqlite3
+googletrans==4.0.0rc1
+black
+acyncio

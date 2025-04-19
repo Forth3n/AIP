@@ -1,0 +1,49 @@
+2025-04-18 17:26:42,314 [INFO] __main__: Запуск бота...
+2025-04-18 17:26:42,329 [INFO] __main__: Роутеры подключены. Бот начинает polling.
+2025-04-18 17:26:42,330 [INFO] aiogram.dispatcher: Start polling
+2025-04-18 17:26:43,985 [INFO] aiogram.dispatcher: Run polling for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-18 17:27:05,448 [INFO] app.requests: Пользователь с ID 7552809712 и именем None добавлен.
+2025-04-18 17:27:05,448 [INFO] app.handlers: Команда /start от пользователя 7552809712 (None)
+2025-04-18 17:27:07,853 [INFO] aiogram.event: Update id=302016849 is handled. Duration 2422 ms by bot id=7245211358
+2025-04-18 17:30:09,235 [INFO] app.handlers: Запрос на праздник на сегодня от 7552809712 — 2025-04-18
+2025-04-18 17:30:12,244 [INFO] aiogram.event: Update id=302016850 is handled. Duration 3000 ms by bot id=7245211358
+2025-04-18 17:33:25,288 [INFO] aiogram.dispatcher: Polling stopped
+2025-04-18 17:33:25,542 [INFO] __main__: Polling завершён.
+2025-04-18 17:33:25,574 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
+2025-04-18 17:33:25,578 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-18 17:33:37,048 [INFO] __main__: Запуск бота...
+2025-04-18 17:33:37,076 [INFO] __main__: Роутеры подключены. Бот начинает polling.
+2025-04-18 17:33:37,079 [INFO] aiogram.dispatcher: Start polling
+2025-04-18 17:33:38,173 [INFO] aiogram.dispatcher: Run polling for bot @akemi003_bot id=7245211358 - 'Akemi'
+2025-04-18 17:34:00,188 [INFO] app.requests: Пользователь с ID 7552809712 и именем None добавлен.
+2025-04-18 17:34:00,194 [INFO] app.handlers: Команда /start от пользователя 7552809712 (None)
+2025-04-18 17:34:05,123 [INFO] aiogram.event: Update id=302016851 is handled. Duration 4952 ms by bot id=7245211358
+2025-04-18 17:34:24,558 [INFO] app.handlers: Запрос на праздник на сегодня от 7552809712 — 2025-04-18
+2025-04-18 17:34:26,889 [INFO] aiogram.event: Update id=302016852 is handled. Duration 2343 ms by bot id=7245211358
+2025-04-18 17:34:29,362 [INFO] app.handlers: Пользователь 7552809712 выбрал ввод другой даты
+2025-04-18 17:34:29,773 [INFO] aiogram.event: Update id=302016853 is handled. Duration 406 ms by bot id=7245211358
+2025-04-18 17:34:37,925 [INFO] app.handlers: Пользователь 7552809712 ввёл дату: 2025-12-31
+2025-04-18 17:34:40,306 [INFO] aiogram.event: Update id=302016854 is handled. Duration 2375 ms by bot id=7245211358
+2025-04-18 17:34:44,916 [INFO] app.handlers: Пользователь 7552809712 запросил личный календарь
+2025-04-18 17:34:44,925 [INFO] app.requests: Получены праздники для пользователя с ID 7552809712.
+2025-04-18 17:34:45,333 [INFO] aiogram.event: Update id=302016855 is handled. Duration 421 ms by bot id=7245211358
+2025-04-18 17:34:48,137 [INFO] app.handlers: Пользователь 7552809712 начал добавление праздника
+2025-04-18 17:34:48,728 [INFO] aiogram.event: Update id=302016856 is handled. Duration 594 ms by bot id=7245211358
+2025-04-18 17:34:55,471 [INFO] app.handlers: Пользователь 7552809712 указал дату личного праздника: 2025-12-12
+2025-04-18 17:34:55,688 [INFO] aiogram.event: Update id=302016857 is handled. Duration 218 ms by bot id=7245211358
+2025-04-18 17:35:00,956 [INFO] app.requests: Добавлен личный праздник 'мой др' для пользователя с ID 7552809712.
+2025-04-18 17:35:00,958 [INFO] app.handlers: Пользователь 7552809712 добавил праздник 'мой др' (2025-12-12)
+2025-04-18 17:35:01,204 [INFO] aiogram.event: Update id=302016858 is handled. Duration 311 ms by bot id=7245211358
+2025-04-18 17:35:04,953 [INFO] app.handlers: Пользователь 7552809712 запросил личный календарь
+2025-04-18 17:35:04,963 [INFO] app.requests: Получены праздники для пользователя с ID 7552809712.
+2025-04-18 17:35:05,195 [INFO] aiogram.event: Update id=302016859 is handled. Duration 250 ms by bot id=7245211358
+2025-04-18 17:35:42,379 [INFO] app.handlers: Пользователь 7552809712 начал добавление праздника
+2025-04-18 17:35:54,132 [INFO] app.requests: Удалён праздник 'мой др' для пользователя с ID 7552809712.
+2025-04-18 17:35:54,136 [INFO] app.handlers: Пользователь 7552809712 удалил личный праздник 'мой др'
+2025-04-18 17:35:54,146 [INFO] app.requests: Получены праздники для пользователя с ID 7552809712.
+2025-04-18 17:35:54,192 [INFO] aiogram.event: Update id=302016860 is handled. Duration 11813 ms by bot id=7245211358
+2025-04-18 17:35:55,012 [INFO] aiogram.event: Update id=302016861 is handled. Duration 938 ms by bot id=7245211358
+2025-04-18 17:36:15,361 [INFO] aiogram.dispatcher: Polling stopped
+2025-04-18 17:36:15,618 [INFO] __main__: Polling завершён.
+2025-04-18 17:36:15,645 [INFO] __main__: Финальный HTML-отчёт создан: reports\final_report.html
+2025-04-18 17:36:15,645 [INFO] aiogram.dispatcher: Polling stopped for bot @akemi003_bot id=7245211358 - 'Akemi'
