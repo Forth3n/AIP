@@ -110,7 +110,7 @@ async def main():
     dp = Dispatcher()
     dp.include_router(router)
 
-    logger.info("Роутеры подключены. Бот начинает polling.")
+    logger.info("Роутеры подключены. Бот  начинает polling.")
     try:
         await dp.start_polling(bot)
     except Exception as e:
